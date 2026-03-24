@@ -1,0 +1,1447 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chamika Raigama | Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Chamika Raigama, Software Engineering undergraduate and Software Engineer Intern from Sri Lanka."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/274fe76f63.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      :root {
+        --bg: #0b1020;
+        --card: rgba(255, 255, 255, 0.06);
+        --line: rgba(255, 255, 255, 0.12);
+        --text: #eef2ff;
+        --muted: #b7c0d8;
+        --primary: #7c3aed;
+        --accent: #38bdf8;
+        --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        --radius: 22px;
+        --maxw: 1180px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(124, 58, 237, 0.22),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at top right,
+            rgba(56, 189, 248, 0.16),
+            transparent 24%
+          ),
+          linear-gradient(180deg, #0b1020 0%, #0d1326 100%);
+        color: var(--text);
+        line-height: 1.65;
+      }
+
+      body.light {
+        --bg: #f7f8fc;
+        --card: rgba(255, 255, 255, 0.8);
+        --line: rgba(15, 23, 42, 0.1);
+        --text: #0f172a;
+        --muted: #475569;
+        --shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(124, 58, 237, 0.09),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at top right,
+            rgba(56, 189, 248, 0.1),
+            transparent 24%
+          ),
+          linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .container {
+        width: min(92%, var(--maxw));
+        margin: 0 auto;
+      }
+      .section {
+        padding: 92px 0;
+      }
+      .section-title {
+        font-size: clamp(1.9rem, 4vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 14px;
+        letter-spacing: -0.03em;
+      }
+      .section-subtitle {
+        color: var(--muted);
+        max-width: 760px;
+        margin-bottom: 36px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #dbeafe;
+        font-size: 0.92rem;
+        margin-bottom: 18px;
+        backdrop-filter: blur(10px);
+      }
+      body.light .badge {
+        background: rgba(124, 58, 237, 0.08);
+        border-color: rgba(124, 58, 237, 0.12);
+        color: #4c1d95;
+      }
+
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(11, 16, 32, 0.72);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      body.light .navbar {
+        background: rgba(255, 255, 255, 0.8);
+        border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+      }
+      .nav-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 78px;
+        gap: 20px;
+      }
+      .brand {
+        font-size: 1.2rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+      .brand span {
+        color: #a78bfa;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+      .nav-links a {
+        color: var(--muted);
+        font-weight: 500;
+        transition: 0.25s ease;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--text);
+      }
+      .nav-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .menu-btn,
+      .theme-btn {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: white;
+        border-radius: 14px;
+        padding: 12px 14px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      body.light .menu-btn,
+      body.light .theme-btn {
+        color: var(--text);
+        background: rgba(15, 23, 42, 0.04);
+        border-color: rgba(15, 23, 42, 0.08);
+      }
+      .menu-btn {
+        display: none;
+      }
+
+      .hero {
+        padding: 68px 0 44px;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 30px;
+        align-items: center;
+      }
+      .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        line-height: 1.05;
+        letter-spacing: -0.05em;
+        margin-bottom: 18px;
+      }
+      .hero h1 span {
+        color: #c4b5fd;
+      }
+      .hero p {
+        color: var(--muted);
+        font-size: 1.04rem;
+        max-width: 670px;
+        margin-bottom: 28px;
+      }
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-bottom: 26px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 20px;
+        border-radius: 14px;
+        border: 1px solid transparent;
+        font-weight: 600;
+        transition: 0.25s ease;
+        cursor: pointer;
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), #5b21b6);
+        color: white;
+        box-shadow: var(--shadow);
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+      }
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.12);
+        color: white;
+      }
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      body.light .btn-secondary {
+        color: var(--text);
+        background: rgba(15, 23, 42, 0.04);
+        border-color: rgba(15, 23, 42, 0.08);
+      }
+
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .glass-card,
+      .stat-card,
+      .skill-card,
+      .project-card,
+      .timeline-card,
+      .contact-card,
+      .cert-card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        backdrop-filter: blur(12px);
+        box-shadow: var(--shadow);
+      }
+      .stat-card {
+        padding: 18px;
+      }
+      .stat-card h3 {
+        font-size: 1.45rem;
+        margin-bottom: 4px;
+      }
+      .stat-card p {
+        font-size: 0.92rem;
+        color: var(--muted);
+      }
+
+      .profile-card {
+        padding: 26px;
+        position: relative;
+        overflow: hidden;
+      }
+      .profile-card::before {
+        content: "";
+        position: absolute;
+        inset: auto -30px -30px auto;
+        width: 160px;
+        height: 160px;
+        background: radial-gradient(
+          circle,
+          rgba(34, 197, 94, 0.25),
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .profile-card h3 {
+        font-size: 1.35rem;
+        margin-bottom: 10px;
+      }
+      .profile-meta {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .profile-meta div,
+      .profile-meta a {
+        display: flex;
+        gap: 12px;
+        align-items: start;
+        color: var(--muted);
+        font-size: 0.96rem;
+      }
+      .profile-meta i {
+        color: #a78bfa;
+        margin-top: 4px;
+      }
+
+      .about-grid,
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 24px;
+        align-items: start;
+      }
+      .glass-card {
+        padding: 28px;
+      }
+      .about-text p {
+        color: var(--muted);
+        margin-bottom: 16px;
+      }
+      .highlights {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        margin-top: 20px;
+      }
+      .highlight-item {
+        padding: 18px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      body.light .highlight-item {
+        background: rgba(15, 23, 42, 0.04);
+        border-color: rgba(15, 23, 42, 0.08);
+      }
+      .highlight-item h4 {
+        margin-bottom: 8px;
+      }
+      .highlight-item p {
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+      }
+      .skill-card {
+        padding: 22px;
+      }
+      .skill-card i {
+        font-size: 1.3rem;
+        margin-bottom: 14px;
+        color: #93c5fd;
+      }
+      .skill-card h3 {
+        margin-bottom: 12px;
+        font-size: 1.06rem;
+      }
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .skill-tags span {
+        font-size: 0.86rem;
+        color: #dbeafe;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 8px 10px;
+        border-radius: 999px;
+      }
+      body.light .skill-tags span {
+        background: rgba(15, 23, 42, 0.04);
+        border-color: rgba(15, 23, 42, 0.08);
+        color: var(--text);
+      }
+
+      .progress-list {
+        display: grid;
+        gap: 16px;
+        margin-top: 18px;
+      }
+      .progress-item {
+        display: grid;
+        gap: 8px;
+      }
+      .progress-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 0.94rem;
+      }
+      .progress-bar {
+        height: 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .progress-fill {
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #7c3aed, #38bdf8);
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .project-card {
+        overflow: hidden;
+      }
+      .project-top {
+        padding: 24px 24px 10px;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .project-icon {
+        width: 52px;
+        height: 52px;
+        display: grid;
+        place-items: center;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.08);
+        color: #c4b5fd;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+      .project-body {
+        padding: 0 24px 24px;
+      }
+      .project-body h3 {
+        font-size: 1.16rem;
+        margin-bottom: 12px;
+      }
+      .project-body p {
+        color: var(--muted);
+        font-size: 0.96rem;
+        margin-bottom: 16px;
+      }
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      .project-tags span {
+        background: rgba(124, 58, 237, 0.18);
+        color: #ddd6fe;
+        border: 1px solid rgba(196, 181, 253, 0.2);
+        padding: 7px 10px;
+        border-radius: 999px;
+        font-size: 0.82rem;
+      }
+      body.light .project-tags span {
+        background: rgba(124, 58, 237, 0.08);
+        color: #4c1d95;
+        border-color: rgba(124, 58, 237, 0.12);
+      }
+      .project-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .project-links a {
+        font-weight: 600;
+        color: #c4b5fd;
+      }
+      .project-links a:hover {
+        color: white;
+      }
+      .project-shot {
+        margin-top: 16px;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .project-shot img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+      }
+      .project-shot-note {
+        padding: 14px 16px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      body.light .project-shot {
+        background: rgba(15, 23, 42, 0.04);
+        border-color: rgba(15, 23, 42, 0.08);
+      }
+
+      .timeline-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .timeline-card {
+        padding: 24px;
+      }
+      .timeline-card h3 {
+        margin-bottom: 18px;
+        font-size: 1.1rem;
+      }
+      .timeline-item {
+        padding-left: 18px;
+        border-left: 2px solid rgba(167, 139, 250, 0.4);
+        margin-bottom: 18px;
+        position: relative;
+      }
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -7px;
+        top: 4px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #a78bfa;
+      }
+      .timeline-item h4 {
+        font-size: 1rem;
+        margin-bottom: 6px;
+      }
+      .timeline-item p,
+      .timeline-item span {
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .cert-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .cert-card {
+        padding: 22px;
+      }
+      .cert-card i {
+        color: #fbbf24;
+        font-size: 1.35rem;
+        margin-bottom: 12px;
+      }
+      .cert-card h3 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+      }
+      .cert-card p {
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .contact-card {
+        padding: 26px;
+      }
+      .contact-list {
+        display: grid;
+        gap: 14px;
+        margin-top: 18px;
+      }
+      .contact-list a,
+      .contact-list div {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--muted);
+        font-size: 0.96rem;
+        word-break: break-word;
+      }
+      .contact-list i {
+        color: #93c5fd;
+        width: 18px;
+      }
+      .socials {
+        display: flex;
+        gap: 12px;
+        margin-top: 22px;
+        flex-wrap: wrap;
+      }
+      .socials a {
+        width: 46px;
+        height: 46px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: 0.25s ease;
+      }
+      body.light .socials a {
+        background: rgba(15, 23, 42, 0.04);
+        border-color: rgba(15, 23, 42, 0.08);
+      }
+      .socials a:hover {
+        transform: translateY(-3px);
+        background: rgba(124, 58, 237, 0.2);
+      }
+      .contact-form {
+        display: grid;
+        gap: 14px;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: white;
+        border-radius: 16px;
+        padding: 16px 18px;
+        font: inherit;
+        outline: none;
+      }
+      body.light .contact-form input,
+      body.light .contact-form textarea {
+        background: rgba(15, 23, 42, 0.04);
+        border-color: rgba(15, 23, 42, 0.08);
+        color: var(--text);
+      }
+      .contact-form input::placeholder,
+      .contact-form textarea::placeholder {
+        color: #94a3b8;
+      }
+      .contact-form textarea {
+        resize: vertical;
+        min-height: 160px;
+      }
+      .form-note {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-top: 8px;
+      }
+
+      footer {
+        padding: 26px 0 34px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--muted);
+        font-size: 0.94rem;
+        text-align: center;
+      }
+
+      @media (max-width: 1024px) {
+        .hero-grid,
+        .about-grid,
+        .contact-grid,
+        .timeline-grid,
+        .projects-grid,
+        .skills-grid,
+        .cert-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-stats,
+        .highlights {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .nav-links {
+          position: fixed;
+          top: 78px;
+          right: -100%;
+          width: min(85vw, 320px);
+          height: calc(100vh - 78px);
+          background: #0e152b;
+          border-left: 1px solid rgba(255, 255, 255, 0.08);
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 28px;
+          transition: 0.3s ease;
+        }
+        body.light .nav-links {
+          background: #ffffff;
+        }
+        .nav-links.open {
+          right: 0;
+        }
+        .menu-btn {
+          display: inline-block;
+        }
+        .hero-stats,
+        .highlights {
+          grid-template-columns: 1fr;
+        }
+        .section {
+          padding: 82px 0;
+        }
+        .hero {
+          padding-top: 42px;
+        }
+        .theme-btn {
+          padding: 12px;
+        }
+        .theme-btn span {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-wrap">
+        <a href="#home" class="brand">Chamika <span>Raigama</span></a>
+        <nav class="nav-links" id="navLinks">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#achievements">Highlights</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="nav-actions">
+          <button
+            class="theme-btn"
+            id="themeToggle"
+            type="button"
+            aria-label="Toggle theme"
+          >
+            <i class="fa-solid fa-moon"></i> <span>Theme</span>
+          </button>
+          <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero-grid">
+          <div>
+            <div class="badge">
+              <i class="fa-solid fa-circle-check"></i> Software Engineering
+              Undergraduate • Software Engineer Intern • AI • Web • ML • IoT
+            </div>
+            <h1>
+              Hi, I’m <span>Chamika Raigama</span><br />Building AI-powered,
+              web, and smart IoT solutions.
+            </h1>
+            <p>
+              I am a final-year Software Engineering undergraduate currently in
+              my internship period. I have hands-on experience in web
+              development, APIs, IoT systems, microservices, and machine
+              learning deployment, and I enjoy turning ideas into practical,
+              user-friendly software products.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#projects"
+                ><i class="fa-solid fa-laptop-code"></i> View Projects</a
+              >
+              <a class="btn btn-secondary" href="#contact"
+                ><i class="fa-solid fa-paper-plane"></i> Contact Me</a
+              >
+              <a
+                class="btn btn-secondary"
+                href="assets/files/Chamika_Raigama_CV.pdf"
+                download
+                ><i class="fa-solid fa-file-arrow-down"></i> Download CV</a
+              >
+            </div>
+            <div class="hero-stats">
+              <div class="stat-card">
+                <h3>08+</h3>
+                <p>Featured technical projects</p>
+              </div>
+              <div class="stat-card">
+                <h3>3.72 GPA</h3>
+                <p>Current academic performance</p>
+              </div>
+              <div class="stat-card">
+                <h3>Final Year</h3>
+                <p>Internship-ready software profile</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="profile-card glass-card">
+            <img
+              src="assets/images/profile.jpg"
+              alt="Chamika Raigama"
+              style="
+                width: 110px;
+                height: 110px;
+                border-radius: 24px;
+                object-fit: cover;
+                margin-bottom: 18px;
+                border: 2px solid rgba(255, 255, 255, 0.2);
+              "
+            />
+            <h3>Quick Profile</h3>
+            <p style="color: var(--muted)">
+              Motivated undergraduate with hands-on work in AI-driven systems,
+              IoT dashboards, API development, microservices, cloud tools, and
+              machine learning deployment.
+            </p>
+            <div class="profile-meta">
+              <div>
+                <i class="fa-solid fa-location-dot"></i><span>Sri Lanka</span>
+              </div>
+              <div>
+                <i class="fa-solid fa-envelope"></i
+                ><span>chamikaraigama@gmail.com</span>
+              </div>
+              <div>
+                <i class="fa-solid fa-phone"></i><span>+94 77 908 4951</span>
+              </div>
+              <a
+                href="https://www.linkedin.com/in/chamika-chathurani-raigama/"
+                target="_blank"
+                ><i class="fa-brands fa-linkedin"></i
+                ><span>LinkedIn Profile</span></a
+              >
+              <a href="https://github.com/ChamikaCc" target="_blank"
+                ><i class="fa-brands fa-github"></i
+                ><span>GitHub Portfolio</span></a
+              >
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container">
+          <h2 class="section-title">About Me</h2>
+          <div class="about-grid">
+            <div class="glass-card about-text">
+              <p>
+                I am Chamika Chathurani Raigama, a Software Engineering
+                undergraduate currently in the final stage of my degree and in
+                my internship period. I am passionate about building software
+                that is practical, user-friendly, and technically strong.
+              </p>
+              <p>
+                My work spans web development, APIs, IoT-based systems,
+                dashboards, machine learning applications, and service-oriented
+                architectures. I enjoy learning modern technologies, solving
+                real-world problems, and delivering complete solutions from
+                design to implementation.
+              </p>
+              <p>
+                I am especially interested in Software Engineer Intern,
+                Associate Software Engineer, Web Developer Intern, IoT Developer
+                Intern, and entry-level backend or full-stack roles.
+              </p>
+            </div>
+
+            <div class="glass-card">
+              <h3 style="margin-bottom: 18px; font-size: 1.15rem">
+                What I Bring
+              </h3>
+              <div class="highlights">
+                <div class="highlight-item">
+                  <h4>Problem Solving</h4>
+                  <p>
+                    Strong project experience in designing and implementing
+                    complete software solutions.
+                  </p>
+                </div>
+                <div class="highlight-item">
+                  <h4>Full Project Thinking</h4>
+                  <p>
+                    Comfortable with planning, coding, testing, presenting, and
+                    documenting technical work.
+                  </p>
+                </div>
+                <div class="highlight-item">
+                  <h4>Communication</h4>
+                  <p>
+                    Able to explain technical ideas clearly during demos,
+                    presentations, and teamwork.
+                  </p>
+                </div>
+                <div class="highlight-item">
+                  <h4>Continuous Learning</h4>
+                  <p>
+                    Always ready to explore modern tools, frameworks, and best
+                    practices in software development.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="container">
+          <h2 class="section-title">Technical Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <i class="fa-solid fa-code"></i>
+              <h3>Programming</h3>
+              <div class="skill-tags">
+                <span>C</span><span>JavaScript</span><span>PHP</span
+                ><span>Python</span><span>HTML</span><span>CSS</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <i class="fa-solid fa-globe"></i>
+              <h3>Web & Frameworks</h3>
+              <div class="skill-tags">
+                <span>React</span><span>Flutter</span><span>FastAPI</span
+                ><span>Node.js</span><span>Tailwind CSS</span><span>Figma</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <i class="fa-solid fa-server"></i>
+              <h3>Backend & Integration</h3>
+              <div class="skill-tags">
+                <span>REST API</span><span>SOAP</span><span>Express.js</span
+                ><span>RabbitMQ</span><span>BPEL</span
+                ><span>Microservices</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <i class="fa-solid fa-microchip"></i>
+              <h3>Data, Cloud & IoT</h3>
+              <div class="skill-tags">
+                <span>Firebase</span><span>AWS</span><span>Docker</span
+                ><span>Kubernetes</span><span>ESP32</span
+                ><span>TensorFlow</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card" style="margin-top: 22px">
+            <h3 style="font-size: 1.15rem; margin-bottom: 8px">
+              Skill Strength Overview
+            </h3>
+            <div class="progress-list">
+              <div class="progress-item">
+                <div class="progress-head">
+                  <span>Web Development</span><span>90%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-head">
+                  <span>Software Engineering Fundamentals</span><span>88%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 88%"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-head">
+                  <span>API & Backend Development</span><span>85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-head">
+                  <span>IoT Systems</span><span>85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-head">
+                  <span>Applied AI / ML</span><span>82%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 82%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="container">
+          <h2 class="section-title">Featured Projects</h2>
+          <div class="projects-grid">
+            <article class="project-card">
+              <div class="project-top">
+                <div><div class="badge">Final Year AI Project</div></div>
+                <div class="project-icon">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+              </div>
+              <div class="project-body">
+                <h3>NeuroMathix</h3>
+                <p>
+                  Developing an AI-driven personalized mathematics learning
+                  system using machine learning, forgetting curve models, and
+                  Explainable AI for adaptive learning and student performance
+                  tracking.
+                </p>
+                <div class="project-tags">
+                  <span>Python</span><span>TensorFlow</span><span>FastAPI</span
+                  ><span>Flutter</span><span>Firebase</span
+                  ><span>Google Cloud</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/ChamikaCc" target="_blank"
+                    >GitHub Profile
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+  <div class="project-top">
+    <div>
+      <div class="badge">AI / Computer Vision</div>
+    </div>
+    <div class="project-icon">
+      <i class="fa-solid fa-camera"></i>
+    </div>
+  </div>
+  <div class="project-body">
+    <h3>Face Recognition Attendance System</h3>
+    <p>
+      Developed an AI-based attendance management system using face recognition technology. 
+      The system detects and recognizes student faces, marks attendance automatically, and 
+      stores records in a database, reducing manual attendance errors and improving efficiency.
+    </p>
+    <div class="project-tags">
+      <span>Python</span>
+      <span>OpenCV</span>
+      <span>Face Recognition</span>
+      <span>Machine Learning</span>
+      <span>Database</span>
+    </div>
+    <div class="project-links">
+      <a href="https://github.com/ChamikaCc/Face-Recognition-Attendance-System" target="_blank">
+        GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+    </div>
+  </div>
+</article>
+
+            <article class="project-card">
+              <div class="project-top">
+                <div><div class="badge">Final Year IoT Project</div></div>
+                <div class="project-icon">
+                  <i class="fa-solid fa-trash-can"></i>
+                </div>
+              </div>
+              <div class="project-body">
+                <h3>Smart Waste Management IoT Smart Bin</h3>
+                <p>
+                  Designed and developed a smart waste management system with
+                  compartment-based detection, servo-controlled sorting,
+                  ultrasonic fill-level monitoring, and a real-time dashboard
+                  using ESP32 and Firebase.
+                </p>
+                <div class="project-tags">
+                  <span>ESP32</span><span>Firebase</span><span>Chart.js</span
+                  ><span>Tailwind CSS</span><span>IoT Dashboard</span>
+                </div>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/ChamikaCc/Smart-Waste-Management-IoT-Smart-Bin-Real-Hardware-Dashboard-"
+                    target="_blank"
+                    >GitHub
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-top">
+                <div><div class="badge">SOA & Microservices</div></div>
+                <div class="project-icon">
+                  <i class="fa-solid fa-diagram-project"></i>
+                </div>
+              </div>
+              <div class="project-body">
+                <h3>GlobalBooks SOA Microservices Project</h3>
+                <p>
+                  Implemented a service-oriented architecture system using SOAP
+                  services, REST APIs, RabbitMQ messaging, and BPEL
+                  orchestration for a distributed bookstore platform.
+                </p>
+                <div class="project-tags">
+                  <span>SOAP</span><span>REST</span><span>RabbitMQ</span
+                  ><span>BPEL</span><span>Node.js</span
+                  ><span>Architecture Design</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-top">
+                <div><div class="badge">ML / MLOps Project</div></div>
+                <div class="project-icon">
+                  <i class="fa-solid fa-brain"></i>
+                </div>
+              </div>
+              <div class="project-body">
+                <h3>Customer Churn Prediction API</h3>
+                <p>
+                  Built and deployed a machine learning prediction API with
+                  FastAPI, Docker, and Docker Compose, focusing on deployment,
+                  health checks, prediction endpoints, and testing flow.
+                </p>
+                <div class="project-tags">
+                  <span>FastAPI</span><span>Docker</span
+                  ><span>Docker Compose</span><span>ML Deployment</span
+                  ><span>API Testing</span>
+                </div>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/ChamikaCc/Customer_Churn_Prediction"
+                    target="_blank"
+                    >GitHub
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-top">
+                <div><div class="badge">Full Stack Project</div></div>
+                <div class="project-icon">
+                  <i class="fa-solid fa-list-check"></i>
+                </div>
+              </div>
+              <div class="project-body">
+                <h3>AURA Task Manager</h3>
+                <p>
+                  Engineered a full-stack task manager featuring real-time
+                  collaboration, notification systems, Docker-based deployment,
+                  and Kubernetes/CI-CD oriented workflows.
+                </p>
+                <div class="project-tags">
+                  <span>Full Stack</span><span>Docker</span
+                  ><span>Kubernetes</span><span>CI/CD</span
+                  ><span>Collaboration</span>
+                </div>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/ChamikaCc/Todo-App.git"
+                    target="_blank"
+                    >GitHub Profile
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-top">
+                <div><div class="badge">Mobile App</div></div>
+                <div class="project-icon">
+                  <i class="fa-solid fa-calculator"></i>
+                </div>
+              </div>
+              <div class="project-body">
+                <h3>GPA Calculator</h3>
+                <p>
+                  Created a cross-platform Flutter application that helps
+                  students calculate and manage GPA with a simple and
+                  user-friendly interface.
+                </p>
+                <div class="project-tags">
+                  <span>Flutter</span><span>Dart</span><span>Firebase</span
+                  ><span>Cross-platform</span>
+                </div>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/ChamikaCc/GPA-Calculator"
+                    target="_blank"
+                    >GitHub
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="experience">
+        <div class="container">
+          <h2 class="section-title">Education & Experience</h2>
+          <p class="section-subtitle">
+            A concise section for publishing: strong education details, current
+            internship status, and focused technical direction.
+          </p>
+          <div class="timeline-grid">
+            <div class="timeline-card">
+              <h3>Education</h3>
+              <div class="timeline-item">
+                <h4>BSc (Hons) Software Engineering</h4>
+                <span>SLTC Research University, Sri Lanka</span>
+                <p>
+                  Final-year undergraduate with a current GPA of 3.72 / 4.00 and
+                  strong project experience in software engineering, AI, web
+                  systems, IoT, and architecture design.
+                </p>
+              </div>
+              <div class="timeline-item">
+                <h4>Assured Diploma in Information Technology (DiTECH)</h4>
+                <span>ESOFT Metro Campus</span>
+                <p>
+                  Built early technical foundations in software and information
+                  technology concepts.
+                </p>
+              </div>
+              <div class="timeline-item">
+                <h4>Diploma in English (Intermediate Level)</h4>
+                <span>Aquinas College of Higher Studies</span>
+                <p>
+                  Strengthened academic and professional communication skills.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-card">
+              <h3>Experience & Focus</h3>
+              <div class="timeline-item">
+                <h4>Software Engineer Intern</h4>
+                <span>Current internship period</span>
+                <p>
+                  Developing practical industry readiness through software
+                  development, technical problem solving, project delivery, and
+                  presentation skills.
+                </p>
+              </div>
+              <div class="timeline-item">
+                <h4>Technical Focus Areas</h4>
+                <span>AI, Web, IoT, Cloud, and SOA</span>
+                <p>
+                  Hands-on work across APIs, machine learning deployment, IoT
+                  dashboards, microservices, cloud tools, and software
+                  engineering coursework projects.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="achievements">
+        <div class="container">
+          <h2 class="section-title">Achievements & Certifications</h2>
+          <p class="section-subtitle">
+            Additional achievements, certifications, and leadership roles that
+            strengthen my software engineering and technical profile.
+          </p>
+
+          <div class="cert-grid">
+            <div class="cert-card">
+              <i class="fa-solid fa-certificate"></i>
+              <h3>OpenAPI Fundamentals – Linux Foundation</h3>
+              <p>
+                Learned REST API design, OpenAPI specification, and professional
+                API documentation standards used in modern software development.
+              </p>
+            </div>
+
+            <div class="cert-card">
+              <i class="fa-solid fa-code"></i>
+              <h3>Learn C Programming – Udemy</h3>
+              <p>
+                Developed strong programming fundamentals including
+                problem-solving, functions, arrays, pointers, and algorithmic
+                thinking.
+              </p>
+            </div>
+
+            <div class="cert-card">
+              <i class="fa-solid fa-laptop-code"></i>
+              <h3>HTML & CSS – Udemy</h3>
+              <p>
+                Built responsive web pages and user interfaces using modern HTML
+                and CSS layout and styling techniques.
+              </p>
+            </div>
+
+            <div class="cert-card">
+              <i class="fa-solid fa-newspaper"></i>
+              <h3>Published Article – Sunday Times (Education Times)</h3>
+              <p>
+                Published a group article as Group Leader and Co-author on
+                Explainable AI (XAI) and Educational Technology.
+              </p>
+            </div>
+
+            <div class="cert-card">
+              <i class="fa-solid fa-people-group"></i>
+              <h3>Assistant Chief Editor – SLTC Media Unit</h3>
+              <p>
+                Led content planning, editing, and media coordination
+                activities, demonstrating leadership and communication skills.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container">
+          <h2 class="section-title">Contact Me</h2>
+          <p class="section-subtitle">
+            I am open to internship opportunities, collaborations, and project
+            discussions.
+          </p>
+
+          <div class="contact-grid">
+            <div class="contact-card">
+              <h3 style="margin-bottom: 10px">Let’s Connect</h3>
+              <p style="color: var(--muted)">
+                Feel free to reach out for internship roles, software projects,
+                or professional networking.
+              </p>
+              <div class="contact-list">
+                <a href="mailto:chamikaraigama@gmail.com"
+                  ><i class="fa-solid fa-envelope"></i>
+                  chamikaraigama@gmail.com</a
+                >
+                <div><i class="fa-solid fa-phone"></i> +94 77 908 4951</div>
+                <a
+                  href="https://www.linkedin.com/in/chamika-chathurani-raigama/"
+                  target="_blank"
+                  ><i class="fa-brands fa-linkedin"></i>
+                  linkedin.com/in/chamika-chathurani-raigama</a
+                >
+                <a href="https://github.com/ChamikaCc" target="_blank"
+                  ><i class="fa-brands fa-github"></i> github.com/ChamikaCc</a
+                >
+              </div>
+              <div class="socials">
+                <a
+                  href="https://www.linkedin.com/in/chamika-chathurani-raigama/"
+                  target="_blank"
+                  aria-label="LinkedIn"
+                  ><i class="fa-brands fa-linkedin-in"></i
+                ></a>
+                <a
+                  href="https://github.com/ChamikaCc"
+                  target="_blank"
+                  aria-label="GitHub"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+                <a href="mailto:chamikaraigama@gmail.com" aria-label="Email"
+                  ><i class="fa-solid fa-envelope"></i
+                ></a>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <form
+                class="contact-form"
+                onsubmit="
+                  event.preventDefault();
+                  alert(
+                    'Connect this form to Formspree, Netlify Forms, or Google Apps Script before publishing.',
+                  );
+                "
+              >
+                <input type="text" placeholder="Your Name" required />
+                <input type="email" placeholder="Your Email" required />
+                <textarea placeholder="Your Message"></textarea>
+                <button class="btn btn-primary" type="submit">
+                  <i class="fa-solid fa-paper-plane"></i> Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">© 2026 Chamika Raigama</div>
+    </footer>
+
+    <script>
+      const menuBtn = document.getElementById("menuBtn");
+      const themeToggle = document.getElementById("themeToggle");
+      const navLinks = document.getElementById("navLinks");
+      const savedTheme = localStorage.getItem("portfolio-theme");
+      if (savedTheme === "light") document.body.classList.add("light");
+
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("light");
+        localStorage.setItem(
+          "portfolio-theme",
+          document.body.classList.contains("light") ? "light" : "dark",
+        );
+      });
+
+      menuBtn.addEventListener("click", () =>
+        navLinks.classList.toggle("open"),
+      );
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => navLinks.classList.remove("open"));
+      });
+
+      const sections = document.querySelectorAll("section[id]");
+      const navItems = document.querySelectorAll(".nav-links a");
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+          const top = section.offsetTop - 120;
+          const height = section.offsetHeight;
+          if (window.pageYOffset >= top && window.pageYOffset < top + height)
+            current = section.getAttribute("id");
+        });
+        navItems.forEach((a) => {
+          a.classList.remove("active");
+          if (a.getAttribute("href") === `#${current}`)
+            a.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
